@@ -21,16 +21,14 @@ line_y1_to_y2 = y2-y1
 
 # Entscheidung über Art des Winkels (90 Grad, kein Winkel, normale Berechnung)
 if line_x1_to_x2 == 0 and line_y1_to_y2 != 0:
-    phi = pi/2
-    
+    phi = pi/2    
 elif line_x1_to_x2 == 0 and line_y1_to_y2 == 0:
     phi = False
-else:
-    angle_tan = line_y1_to_y2/line_x1_to_x2
-    phi = atan(angle_tan)
+else: 
+    phi = atan(line_y1_to_y2/line_x1_to_x2)
 
 # Output
-if phi == False:
+if phi is False:
     print("Identische Punkte. Es liegt kein Winkel dazwischen")
 else:
     print(degrees(phi))
