@@ -15,11 +15,13 @@ destinations = [(x, y)]
 sim.start(speedup, scaling, destinations)
 
 # Hier Konsolausgabe der zu fliegenden Distanz ergaenzen
+print(flight_distance(0.0,0.0,x,y,z))
 
 # Fliege das Ufo zum Ziel
 fly_to(sim, x, y, z)
 
 # Hier Konsolausgabe der tatsaechlich geflogenen Distanz ergaenzen
+print(sim.get_dist())
 
 # Terminiere die Simulation
 sim.terminate()
