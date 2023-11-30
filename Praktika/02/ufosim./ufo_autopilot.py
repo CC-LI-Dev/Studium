@@ -10,13 +10,13 @@ def takeoff(sim, z: float) -> None:
     # Rechtzeitig vor dem Erreichen der Zielhoehe, bremst das Ufo auf 1 km/h.
     while sim.get_z() < z - 2:
         time.sleep(0.05)
-        print(format_flight_data(sim))
+    print(format_flight_data(sim))
     sim.request_delta_v(-9)
 
     # Wenn das Ufo ganz nahe dran ist, stoppt es und richtet sich horizontal aus.
     while sim.get_z() < z - 0.05:
         time.sleep(0.05)
-        print(format_flight_data(sim))
+    print(format_flight_data(sim))
     sim.request_delta_v(-1)
     sim.set_i(0)
 
@@ -37,13 +37,13 @@ def cruise(sim, x: float, y: float) -> None:
     # Wenn der Abstand zum Ziel 4m ist, bremst das Ufo auf 1 km/h.
     while dist - sim.get_dist() > 4:
         time.sleep(0.05)
-        print(format_flight_data(sim))
+    print(format_flight_data(sim))
     sim.request_delta_v(-14)
 
     # Wenn der Abstand zum Ziel 0.05m ist, stoppt das Ufo.
     while dist - sim.get_dist() > 0.05:
         time.sleep(0.05)
-        print(format_flight_data(sim))
+    print(format_flight_data(sim))
     sim.request_delta_v(-1)
 
 def landing(sim) -> None:
@@ -55,13 +55,13 @@ def landing(sim) -> None:
     # Wenn die Hoehe 3m erreicht, bremst das Ufo auf 1 km/h.
     while sim.get_z() > 3:
         time.sleep(0.05)
-        print(format_flight_data(sim))
+    print(format_flight_data(sim))
     sim.request_delta_v(-9)
 
     # Das Ufo ist gelandet, wenn die Hoehe kleiner gleich 0 ist.
     while sim.get_z() > 0:
         time.sleep(0.05)
-        print(format_flight_data(sim))
+    print(format_flight_data(sim))
     
 def distance(x1: float, y1: float, x2: float, y2: float) -> float:
     dist = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
@@ -91,7 +91,7 @@ def flight_distance(x1: float, y1: float, x2: float, y2: float, z: float) -> flo
     return flight_dist
 
 def format_flight_data(sim) -> str:
-    return str(sim.get_ftime())+"s:"+str(sim.get_x())+" "+str(sim.get_y())+" "+str(sim.get_z())
+    return str(round(sim.get_ftime(),2))+"s:"+str(round(sim.get_x(),2))+" "+str(round(sim.get_y(),2))+" "+str(round(sim.get_z(),2))
 
 def fly_to(sim, x: float, y: float, z: float) -> None:
     takeoff(sim, z)
@@ -102,7 +102,7 @@ def fac(m: int = 1, n: int = 1) -> int:
     if m < n:
         return 1
     elif m == n:
-        return n*fac(m-1,n+1)
+        return n
     else:
         return n*fac(m-1,n+1)*m
     
