@@ -7,3 +7,4 @@ def fak(n=1):
     return fak_val
 
 print(fak(4))
+from matplotlib import pyplot as plt
