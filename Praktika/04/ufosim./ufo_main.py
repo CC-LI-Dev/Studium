@@ -9,14 +9,14 @@ from ufo_protocol import plot_protocol
 # Hier Konsoleingabe des Ziels x, y und der Flughoehe z ergaenzen
 n_dest = int(input("Wieviele Ziele sollen angeflogen werden?"))
 destinations = []
-#for i in range(0,n_dest):
-#    x = float(input("Zu welcher X Koordinate soll geflogen werden?"))
- #   y = float(input("Zu welcher Y Koordinate soll geflogen werden?"))
-  #  p = (x,y)
-   # destinations.append(p)
+for i in range(0,n_dest):
+    x = float(input("Zu welcher X Koordinate soll geflogen werden?"))
+    y = float(input("Zu welcher Y Koordinate soll geflogen werden?"))
+    p = (x,y)
+    destinations.append(p)
 z = float(input("Bei welcher Höhe Z soll geflogen werden?"))
 print("Die Anzahl möglicher Routen beträgt:"+str(fac(n_dest)))
-destinations = [(55.0, 20.0), (-116.5, 95.0),(-10.0, -40.0), (-115.0, 95.0)]
+
 destinations = find_shortest_route(destinations)
 #destinations.sort(key=itemgetter(0))
 
@@ -36,6 +36,7 @@ fly_to(sim,(0.0,0.0),z)
 # Hier Konsolausgabe der tatsaechlich geflogenen Distanz ergaenzen
 print(sim.get_dist())
 
+# Strecke wird geplotet
 plot_protocol()
 
 # Terminiere die Simulation
