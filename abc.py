@@ -1,0 +1,1 @@
+print([(a,b,c) for a in range(1,101) for b in range(1,101) for c in range(2,2*101) if a**2 + b**2 == c**2 and a <= b])
